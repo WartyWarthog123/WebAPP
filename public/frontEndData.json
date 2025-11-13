@@ -1,0 +1,42 @@
+[
+  {
+    "game_id": 1,
+    "game_name": "Battlefield 6",
+    "game_genre": "First Person Shooter",
+    "game_devs": "DICE",
+    "game_series": "Battlefield",
+    "release_date": "2025"
+  },
+  {
+    "game_id": 2,
+    "game_name": "Battlefield 2042",
+    "game_genre": "First Person Shooter",
+    "game_devs": "DICE",
+    "game_series": "Battlefield",
+    "release_date": "2021"
+  },
+  {
+    "game_id": 3,
+    "game_name": "Battlefield 5",
+    "game_genre": "First Person Shooter",
+    "game_devs": "DICE",
+    "game_series": "Battlefield",
+    "release_date": "2018"
+  },
+  {
+    "game_id": 4,
+    "game_name": "Battlefront 1",
+    "game_genre": "First Person Shooter",
+    "game_devs": "DICE",
+    "game_series": "Star Wars: Battlefront",
+    "release_date": "2015"
+  },
+  {
+    "game_id": 5,
+    "game_name": "Battlefront 2",
+    "game_genre": "First Person Shooter",
+    "game_devs": "DICE",
+    "game_series": "Star Wars: Battlefront",
+    "release_date": "2017"
+  }
+]
