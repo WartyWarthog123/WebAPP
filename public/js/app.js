@@ -15,7 +15,7 @@ function appendData(data) {
   result += `
        <div class="card">
             <h1 class="card-name">${game_name}</h1>
-            <div class="cardImage"><img src="icons/icon-96x96.png"/></div>
+            <div class="cardImage"><img src="icons/${game_name}.png"/></div>
             <div class="cardText>"<p class="card-about">${game_devs} <br/>
                ${game_series} <br/>
                ${game_genre} <br/>
