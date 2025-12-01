@@ -36,6 +36,13 @@ article {
  padding: 20px;
 }
 
+nav {
+ float: center;
+ width: 70%;
+ margin: auto;
+ padding: 20px;
+}
+
 ul {
  list-style-type: none;
  margin: 0;
@@ -59,6 +66,63 @@ ul li a {
  padding-top: 0.02px;
 
  text-decoration: none;
+}
+
+.searchBar {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ align-items: center;
+ margin-bottom: 20px;
+ padding: 10px;
+ background: #f9f9f9;
+ border-radius: 8px;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#search-game {
+ flex-grow: 1;
+ padding: 12px;
+ border: 2px solid #ccc;
+ border-radius: 6px;
+ font-size: 16px;
+ transition: border-color 0.3s, box-shadow 0.3s;
+ min-width: 200px;
+}
+
+#search-game:focus {
+ border-color: #14e6dd;
+ box-shadow: 0 0 5px rgba(20, 230, 221, 0.5);
+ outline: none;
+}
+
+select {
+ padding: 12px;
+ border: 1px solid #ccc;
+ border-radius: 6px;
+ background-color: #fff;
+ font-size: 14px;
+ cursor: pointer;
+ appearance: none;
+ background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.9%20146.2%20210.7%205.4%2069.9z%22%2F%3E%3C%2Fsvg%3E");
+ background-repeat: no-repeat;
+ background-position: right 10px top 50%;
+ background-size: 12px;
+}
+
+select:hover {
+ border-color: #999;
+}
+
+select:focus {
+ border-color: #14e6dd;
+ outline: none;
+}
+
+.searchBar label {
+ font-weight: bold;
+ color: #333;
+ white-space: nowrap;
 }
 
 .container {
