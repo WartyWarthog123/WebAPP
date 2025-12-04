@@ -24,22 +24,6 @@
     "release_date": "2018"
   },
   {
-    "game_id": 4,
-    "game_name": "Battlefront 1",
-    "game_genre": "First Person Shooter",
-    "game_devs": "DICE",
-    "game_series": "Star Wars: Battlefront",
-    "release_date": "2015"
-  },
-  {
-    "game_id": 5,
-    "game_name": "Battlefront 2",
-    "game_genre": "First Person Shooter",
-    "game_devs": "DICE",
-    "game_series": "Star Wars: Battlefront",
-    "release_date": "2017"
-  },
-  {
     "game_id": 6,
     "game_name": "The Sims 4",
     "game_genre": "Life Simulation",
@@ -97,7 +81,7 @@
   },
   {
     "game_id": 13,
-    "game_name": "Star Wars: The Old Republic",
+    "game_name": "Star Wars The Old Republic",
     "game_genre": "MMORPG",
     "game_devs": "BioWare",
     "game_series": "Star Wars",
@@ -161,7 +145,7 @@
   },
   {
     "game_id": 21,
-    "game_name": "Star Wars Jedi: Fallen Order",
+    "game_name": "Star Wars Jedi Fallen Order",
     "game_genre": "Action-Adventure",
     "game_devs": "Respawn Entertainment",
     "game_series": "Star Wars Jedi",
@@ -169,7 +153,7 @@
   },
   {
     "game_id": 22,
-    "game_name": "Star Wars Jedi: Survivor",
+    "game_name": "Star Wars Jedi Survivor",
     "game_genre": "Action-Adventure",
     "game_devs": "Respawn Entertainment",
     "game_series": "Star Wars Jedi",
@@ -177,7 +161,7 @@
   },
   {
     "game_id": 23,
-    "game_name": "Plants vs. Zombies: Battle for Neighborville",
+    "game_name": "PvZ Battle for Neighborville",
     "game_genre": "Third Person Shooter",
     "game_devs": "PopCap Games",
     "game_series": "Plants vs. Zombies",
@@ -185,7 +169,7 @@
   },
   {
     "game_id": 24,
-    "game_name": "Plants vs. Zombies: Garden Warfare 2",
+    "game_name": "PvZ Garden Warfare 2",
     "game_genre": "Third Person Shooter",
     "game_devs": "PopCap Games",
     "game_series": "Plants vs. Zombies",
@@ -225,7 +209,7 @@
   },
   {
     "game_id": 29,
-    "game_name": "Dragon Age: Inquisition",
+    "game_name": "Dragon Age Inquisition",
     "game_genre": "RPG",
     "game_devs": "BioWare",
     "game_series": "Dragon Age",
@@ -246,5 +230,13 @@
     "game_devs": "BioWare",
     "game_series": "Mass Effect",
     "release_date": "2012"
+  },
+  {
+    "game_id": 32,
+    "game_name": "Battlefield 2142",
+    "game_genre": "First Person Shooter",
+    "game_devs": "DICE",
+    "game_series": "Battlefield",
+    "release_date": "2006"
   }
 ]

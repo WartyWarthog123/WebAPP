@@ -8,9 +8,11 @@ CREATE TABLE ea_games(
     release_date TEXT NOT NULL
 );
 
-
 -- Insert sample data for EA Games
 INSERT INTO ea_games (game_name, game_genre, game_devs, game_series, release_date) VALUES
+
+/*
+('Battlefield 2142', 'First Person Shooter', 'DICE', 'Battlefield', '2006'),
 ('The Sims 4', 'Life Simulation', 'Maxis', 'The Sims', '2014'),
 ('The Sims 3', 'Life Simulation', 'Maxis', 'The Sims', '2009'),
 ('Madden NFL 24', 'Sports', 'EA Tiburon', 'Madden NFL', '2023'),
@@ -36,7 +38,8 @@ INSERT INTO ea_games (game_name, game_genre, game_devs, game_series, release_dat
 ('Need for Speed Heat', 'Racing', 'Ghost Games', 'Need for Speed', '2019'),
 ('Dragon Age: Inquisition', 'RPG', 'BioWare', 'Dragon Age', '2014'),
 ('Mass Effect 2', 'Action RPG', 'BioWare', 'Mass Effect', '2010'),
-('Mass Effect 3', 'Action RPG', 'BioWare', 'Mass Effect', '2012');
+('Mass Effect 3', 'Action RPG', 'BioWare', 'Mass Effect', '2012'); 
+*/
 
 
 
