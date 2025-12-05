@@ -66,6 +66,7 @@ async function startServer() {
    });
   });
 
+  //Dynamic API endpoint for filtering database while server is running
   app.get("/api/filter", (req, res) => {
    const {search, dev, series, genre, year} = req.query;
 

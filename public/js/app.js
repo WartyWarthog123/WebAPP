@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 
+//Create initial page data
 async function init() {
  const data = await fetch("/api/ea_games").then((res) => res.json());
 
@@ -9,6 +10,7 @@ async function init() {
 
 init();
 
+//Create the catalogue cards
 function appendData(data) {
  let result = "";
 
@@ -38,6 +40,7 @@ function appendData(data) {
  container.innerHTML = result;
 }
 
+//Populate filter dropdowns
 function populateDropdowns(data) {
  const unique = (arr) => [...new Set(arr)].sort();
 
@@ -64,6 +67,7 @@ function fillDropdown(id, arr) {
  });
 }
 
+//Fetch the selected filters
 async function fetchFiltered() {
  const params = new URLSearchParams({
   search: document.getElementById("search-game").value,
@@ -77,6 +81,7 @@ async function fetchFiltered() {
  appendData(data);
 }
 
+//Tab functionality
 function openPage(evt, Page) {
  var tabcontent = document.getElementsByClassName("tabcontent");
  var tablinks = document.getElementsByClassName("tablinks");
