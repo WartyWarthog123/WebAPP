@@ -66,6 +66,39 @@ async function startServer() {
    });
   });
 
+  app.get("/api/filter", (req, res) => {
+   const {search, dev, series, genre, year} = req.query;
+
+   let sql = "SELECT * FROM ea_games WHERE 1=1";
+   const params = [];
+
+   if (search) {
+    sql += " AND LOWER(game_name) LIKE ?";
+    params.push(`%${search.toLowerCase()}%`);
+   }
+   if (dev) {
+    sql += " AND game_devs = ?";
+    params.push(dev);
+   }
+   if (series) {
+    sql += " AND game_series = ?";
+    params.push(series);
+   }
+   if (genre) {
+    sql += " AND game_genre = ?";
+    params.push(genre);
+   }
+   if (year) {
+    sql += " AND release_date = ?";
+    params.push(year);
+   }
+
+   db.all(sql, params, (err, rows) => {
+    if (err) return res.status(500).json({error: err.message});
+    res.json(rows);
+   });
+  });
+
   // Start listening
   const PORT = 8000;
   app.listen(PORT, () => {

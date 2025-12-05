@@ -1,130 +1,94 @@
-let allGameData = [];
 const container = document.querySelector(".container");
 
-fetch("./frontEndData.json")
- .then(function (response) {
-  return response.json();
- })
- .then(function (data) {
-  allGameData = data;
-  populateDropdowns(data);
-  appendData(data);
- })
- .catch(function (err) {
-  console.log("error: " + err);
- });
+async function init() {
+ const data = await fetch("/api/ea_games").then((res) => res.json());
+
+ populateDropdowns(data);
+ appendData(data);
+}
+
+init();
 
 function appendData(data) {
  let result = "";
+
  if (data.length === 0) {
   result = '<p class="no-results">No games found matching your criteria.</p>';
  } else {
-  data.forEach(({game_name, game_genre, game_devs, game_series, release_date} = rows) => {
+  data.forEach(({game_name, game_genre, game_devs, game_series, release_date}) => {
    result += `
         <div class="card">
-                <h1 class="card-name">${game_name}</h1>
-                <div class="cardImage"><img src="icons/${game_name}.png" width="192" height="192"/></div>
-                <div class="cardText">
-                <p class="card-about">${game_devs} <br/>
-                    ${game_series} <br/>
-                    ${game_genre} <br/>
-                    ${release_date}
-                </p>
-                </div>
-            </div>
+          <h1 class="card-name">${game_name}</h1>
+          <div class="cardImage">
+            <img src="icons/${game_name}.png" width="192" height="192"/>
+          </div>
+          <div class="cardText">
+            <p class="card-about">
+              ${game_devs} <br/>
+              ${game_series} <br/>
+              ${game_genre} <br/>
+              ${release_date}
+            </p>
+          </div>
+        </div>
         `;
   });
  }
+
  container.innerHTML = result;
 }
 
 function populateDropdowns(data) {
- const uniqueDevs = [...new Set(data.map((item) => item.game_devs))].sort();
- const uniqueSeries = [...new Set(data.map((item) => item.game_series))].sort();
- const uniqueGenres = [...new Set(data.map((item) => item.game_genre))].sort();
- const uniqueYears = [...new Set(data.map((item) => item.release_date))].sort((a, b) => b - a);
+ const unique = (arr) => [...new Set(arr)].sort();
 
- const filterDevs = document.getElementById("filter-devs");
- uniqueDevs.forEach((dev) => {
-  const option = document.createElement("option");
-  option.value = dev;
-  option.textContent = dev;
-  filterDevs.appendChild(option);
- });
+ fillDropdown("filter-devs", unique(data.map((i) => i.game_devs)));
+ fillDropdown("filter-series", unique(data.map((i) => i.game_series)));
+ fillDropdown("filter-genre", unique(data.map((i) => i.game_genre)));
+ fillDropdown("filter-year", unique(data.map((i) => i.release_date)));
 
- const filterSeries = document.getElementById("filter-series");
- uniqueSeries.forEach((series) => {
-  const option = document.createElement("option");
-  option.value = series;
-  option.textContent = series;
-  filterSeries.appendChild(option);
- });
-
- const filterGenre = document.getElementById("filter-genre");
- uniqueGenres.forEach((genre) => {
-  const option = document.createElement("option");
-  option.value = genre;
-  option.textContent = genre;
-  filterGenre.appendChild(option);
- });
-
- const filterYear = document.getElementById("filter-year");
- uniqueYears.forEach((year) => {
-  const option = document.createElement("option");
-  option.value = year;
-  option.textContent = year;
-  filterYear.appendChild(option);
- });
-
- document.getElementById("filter-devs").addEventListener("change", applyFilters);
- document.getElementById("filter-series").addEventListener("change", applyFilters);
- document.getElementById("filter-genre").addEventListener("change", applyFilters);
- document.getElementById("filter-year").addEventListener("change", applyFilters);
- document.getElementById("search-game").addEventListener("input", applyFilters); // 'input' reacts immediately
+ document.getElementById("filter-devs").addEventListener("change", fetchFiltered);
+ document.getElementById("filter-series").addEventListener("change", fetchFiltered);
+ document.getElementById("filter-genre").addEventListener("change", fetchFiltered);
+ document.getElementById("filter-year").addEventListener("change", fetchFiltered);
+ document.getElementById("search-game").addEventListener("input", fetchFiltered);
 }
 
-function applyFilters() {
- const selectedDev = document.getElementById("filter-devs").value;
- const selectedSeries = document.getElementById("filter-series").value;
- const selectedGenre = document.getElementById("filter-genre").value;
- const selectedYear = document.getElementById("filter-year").value;
- const searchText = document.getElementById("search-game").value.toLowerCase();
+function fillDropdown(id, arr) {
+ const select = document.getElementById(id);
 
- let filteredData = allGameData;
+ arr.forEach((value) => {
+  const opt = document.createElement("option");
+  opt.value = value;
+  opt.textContent = value;
+  select.appendChild(opt);
+ });
+}
 
- if (searchText) {
-  filteredData = filteredData.filter((game) => game.game_name.toLowerCase().includes(searchText));
- }
+async function fetchFiltered() {
+ const params = new URLSearchParams({
+  search: document.getElementById("search-game").value,
+  dev: document.getElementById("filter-devs").value,
+  series: document.getElementById("filter-series").value,
+  genre: document.getElementById("filter-genre").value,
+  year: document.getElementById("filter-year").value,
+ });
 
- if (selectedDev) {
-  filteredData = filteredData.filter((game) => game.game_devs === selectedDev);
- }
-
- if (selectedSeries) {
-  filteredData = filteredData.filter((game) => game.game_series === selectedSeries);
- }
-
- if (selectedGenre) {
-  filteredData = filteredData.filter((game) => game.game_genre === selectedGenre);
- }
-
- if (selectedYear) {
-  filteredData = filteredData.filter((game) => game.release_date === selectedYear);
- }
-
- appendData(filteredData);
+ const data = await fetch(`/api/filter?${params}`).then((res) => res.json());
+ appendData(data);
 }
 
 function openPage(evt, Page) {
- var i, tabcontent, tablinks;
- tabcontent = document.getElementsByClassName("tabcontent");
- for (i = 0; i < tabcontent.length; i++) {
+ var tabcontent = document.getElementsByClassName("tabcontent");
+ var tablinks = document.getElementsByClassName("tablinks");
+
+ for (let i = 0; i < tabcontent.length; i++) {
   tabcontent[i].style.display = "none";
  }
- tablinks = document.getElementsByClassName("tablinks");
- for (i = 0; i < tablinks.length; i++) {
+
+ for (let i = 0; i < tablinks.length; i++) {
   tablinks[i].className = tablinks[i].className.replace(" active", "");
  }
+
  document.getElementById(Page).style.display = "block";
  evt.currentTarget.className += " active";
 }
