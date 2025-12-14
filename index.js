@@ -1,26 +1,41 @@
+// -------------
 // Load modules
+// -------------
+
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const sqlite3 = require("sqlite3").verbose();
 
-// Initialize Express app
+// ----------------
+// Initialize  app
+// ----------------
+
 const app = express();
 
+// ---------------------------------------
 // Serve static files from 'public' folder
+// ---------------------------------------
+
 app.use(express.static(path.join(__dirname, "public")));
 
+// ---------------------------
 // Connect to SQLite database
+// ---------------------------
+
 const dbPath = path.join(__dirname, ".database", "datasource.db");
 const db = new sqlite3.Database(dbPath, (err) => {
  if (err) {
   console.error("❌ Could not open database:", err.message);
-  process.exit(1); // Exit if DB fails to open
+  process.exit(1);
  }
  console.log("✅ Connected to SQLite database");
 });
 
+// -----------------------------------
 // Function to export DB data to JSON
+// -----------------------------------
+
 function exportDbToJson() {
  return new Promise((resolve, reject) => {
   db.all("SELECT * FROM ea_games", (err, rows) => {
@@ -29,10 +44,8 @@ function exportDbToJson() {
     return reject(err);
    }
 
-   // Convert rows to JSON string
    const jsonString = JSON.stringify(rows, null, 2);
 
-   // Write to public folder (accessible to frontend)
    const outputPath = path.join(__dirname, "public", "frontEndData.json");
    fs.writeFile(outputPath, jsonString, (err) => {
     if (err) {
@@ -46,17 +59,18 @@ function exportDbToJson() {
  });
 }
 
+// -----------------------------------
 // Start server AFTER data is exported
+// -----------------------------------
+
 async function startServer() {
  try {
   await exportDbToJson();
 
-  // Route for root
   app.get("/", (req, res) => {
    res.sendFile(path.join(__dirname, "public", "index.html"));
   });
 
-  // Optional: API endpoint (better than static JSON)
   app.get("/api/ea_games", (req, res) => {
    db.all("SELECT * FROM ea_games", (err, rows) => {
     if (err) {
@@ -66,7 +80,10 @@ async function startServer() {
    });
   });
 
-  //Dynamic API endpoint for filtering database while server is running
+  // -------------------------------------------------------------------
+  // Dynamic API endpoint for filtering database while server is running
+  // -------------------------------------------------------------------
+
   app.get("/api/filter", (req, res) => {
    const {search, dev, series, genre, year} = req.query;
 
@@ -100,7 +117,10 @@ async function startServer() {
    });
   });
 
+  // ----------------
   // Start listening
+  // ----------------
+
   const PORT = 8000;
   app.listen(PORT, () => {
    console.log(`🚀 Server running on http://localhost:${PORT}`);
@@ -113,7 +133,10 @@ async function startServer() {
  }
 }
 
+// ----------------
 // Handle shutdown
+// ----------------
+
 process.on("SIGINT", () => {
  db.close(() => {
   console.log("✅ Database connection closed");
@@ -121,5 +144,8 @@ process.on("SIGINT", () => {
  });
 });
 
+// -----------------
 // Start everything
+// -----------------
+
 startServer();
