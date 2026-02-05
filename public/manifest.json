@@ -8,64 +8,194 @@
  "orientation": "portrait-primary",
  "icons": [
   {
-   "src": "/icons/icon-96x96.png",
+   "src": "/icons/Apex Legends.png",
    "type": "image/png",
-   "sizes": "96x96",
+   "sizes": "192x192",
    "purpose": "maskable"
   },
+
   {
-   "src": "/icons/icon-96x96.png",
-   "type": "image/png",
-   "sizes": "96x96",
-   "purpose": "any"
-  },
-  {
-   "src": "/icons/icon-128x128.png",
-   "type": "image/png",
-   "sizes": "128x128",
-   "purpose": "maskable"
-  },
-  {
-   "src": "/icons/icon-128x128.png",
-   "type": "image/png",
-   "sizes": "128x128",
-   "purpose": "any"
-  },
-  {
-   "src": "/icons/icon-192x192.png",
+   "src": "/icons/Battlefield 1.png",
    "type": "image/png",
    "sizes": "192x192",
    "purpose": "maskable"
   },
   {
-   "src": "/icons/icon-192x192.png",
+   "src": "/icons/Battlefield 3.png",
    "type": "image/png",
    "sizes": "192x192",
-   "purpose": "any"
-  },
-  {
-   "src": "/icons/icon-384x384.png",
-   "type": "image/png",
-   "sizes": "384x384",
    "purpose": "maskable"
   },
   {
-   "src": "/icons/icon-384x384.png",
+   "src": "/icons/Battlefield 4.png",
    "type": "image/png",
-   "sizes": "384x384",
-   "purpose": "any"
-  },
-  {
-   "src": "/icons/icon-512x512.png",
-   "type": "image/png",
-   "sizes": "512x512",
+   "sizes": "192x192",
    "purpose": "maskable"
   },
   {
-   "src": "/icons/icon-512x512.png",
+   "src": "/icons/Battlefield 5.png",
    "type": "image/png",
-   "sizes": "512x512",
-   "purpose": "any"
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Battlefield 6.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Battlefield 2042.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Battlefield 2142.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Dead Space Remake.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Dead Space.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+
+  {
+   "src": "/icons/Dragon Age Inquisition.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/FIFA 23.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Madden NFL 23.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Madden NFL 24.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Mass Effect 2.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Mass Effect 3.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Mass Effect.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/NBA Live Mobile.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Need for Speed Heat.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Need for Speed Unbound.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/PvZ Battle for Neighborville.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/PvZ Garden Warfare 2.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+
+  {
+   "src": "/icons/Star Wars Battlefront II.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Star WarsBattlefront.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Star Wars Jedi Fallen Order.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Star Wars Jedi Survivor.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Star Wars The Old Republic.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/The Sims 3 .png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+
+  {
+   "src": "/icons/The Sims 4.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Titanfall 2.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/icons/Titanfall.png",
+   "type": "image/png",
+   "sizes": "192x192",
+   "purpose": "maskable"
   }
  ]
 }
