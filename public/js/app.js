@@ -32,10 +32,10 @@ function appendData(data) {
           </div>
           <div class="cardText">
             <p class="card-about">
-              ${game_devs} <br/>
-              ${game_series} <br/>
-              ${game_genre} <br/>
-              ${release_date}
+              Game Devs: ${game_devs} <br/>
+              Game Series: ${game_series} <br/>
+              Game Genre: ${game_genre} <br/>
+              Release Date: ${release_date}
             </p>
           </div>
         </div>
